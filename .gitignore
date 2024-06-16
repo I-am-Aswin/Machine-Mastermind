@@ -1,0 +1,11 @@
+# Ignored Folders
+/instance/
+/Model/models/
+/Model/datasets/IPL_DS/
+/Model/datasets/unprocessed/
+/Model/docs/
+/Model/rand_i/
+/node_modules/
+/Server/__pycache__/
+/Server/node_modules/
+/Server/model/

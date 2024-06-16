@@ -1,0 +1,49 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="p-8">
+
+    <!-- <div class="w-full text-wrap p-2 pt-0 pb-4 sm:w-9/12 md:w-2/3 lg:w-3/6 mx-auto mb-4">
+        <p class="text-lg sm:text-xl md:text-2xl font-bold text-center">Machine Mastermind</p>
+        <p class="text-md md:text-lg lg:text-xl text-justify"><p class="italic font-bold inline">Unlocking the secrets of visual perception:</p> a journey into image classification with Machine Mastermind.</p>
+    </div> -->
+    
+    <form class="flex flex-col justify-center items-center mx-auto rounded-lg border shadow-md lg:w-4/5 px-2 py-6 gap-4 transition-all duration-150" id="ImgUpload" enctype="multipart/form-data">
+
+        <!-- Image Select  -->
+        <div class="flex flex-col sm:flex-row justify-evenly items-center md:w-2/3 gap-2 md:gap-0 transition-all duration-150">
+            <label for="picture">Upload a Jersey : </label>
+            <label for="file-upload" class="max-w-64 px-6 py-4 overflow-clip overflow-ellipsis text-wrap bg-white text-purple-600 border border-purple-600 rounded-lg shadow-md tracking-wide hover:bg-purple-600 hover:text-white transition-all duration-150 cursor-pointer">
+                <span id="file-name" class="overflow-ellipsis text-center">Select a file</span>
+                <input type="file" id="file-upload" name="file" accept=".jpg" class="hidden" onchange="handleFileChange()" required>
+            </label>
+        </div>
+
+        <!-- Image Preview -->
+        <div id="img-prev" class="w-full sm:w-4/5 md:W-4/5 lg:w-10/12">
+            <div alt="Image" id="jersey" class="aspect-square w-11/12 sm:w-4/5 mx-auto p-1 rounded-lg border shadow-md box-border bg-clip-content transition-all duration-150">
+            
+                <div id="img-unk" class="flex flex-col w-full h-full items-center justify-center">
+                    <img src="{{ url_for('static', filename='img/upload.png') }}" alt="Upload Icon" class="w-16 lg:w-24 ">
+                    <p class="text-lg md:text-xl">Select a File</p>
+                </div>  
+
+            </div>
+
+            <p id="jclass" class="text-md sm:text-lg lg:text-xl mt-2 sm:mt-4 text-center hidden transition-all duration-150"></p>
+            <img id="spinner1" src="{{ url_for('static', filename='img/spinner.svg') }}" class="w-12 animate-spin mx-auto hidden transition-all duration-200"></img>
+        </div>
+
+        <img id="spinner" src="{{ url_for('static', filename='img/spinner.svg') }}" class="w-12 animate-spin hidden transition-all duration-150"></img>
+
+        <input type="submit" value="Classify" class="px-4 py-2 bg-purple-800 text-slate-100 rounded-md hover:bg-purple-700 transition-all duration-150 cursor-pointer">
+
+    </form>
+
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+{% endblock %}
